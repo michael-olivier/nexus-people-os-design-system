@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus People OS — Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" />
+    <link rel="stylesheet" href="../dist/nexus-ds.css" />
+    <style>
+      .demo-page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .demo-section {
+        margin-top: 48px;
+      }
+      .demo-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 16px;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+        margin-top: 16px;
+      }
+      h1 {
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+      .demo-sub {
+        color: var(--muted);
+        max-width: 36rem;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-page">
+      <p class="eyebrow">Nexus People OS</p>
+      <h1>Design system v0.1</h1>
+      <p class="demo-sub">
+        Tokens and primitives from the Career Coach Agent prototype. Refine here, then integrate
+        into the app via <code>dist/nexus-ds.css</code>.
+      </p>
+
+      <section class="demo-section">
+        <p class="section-label">Brand</p>
+        <a class="brand" href="#">
+          <div class="brand-mark brand-mark--logo">
+            <img src="../examples/nexus-logo.png" alt="" width="46" height="46" />
+          </div>
+          <div>
+            <p class="eyebrow brand-wordmark">Nexus</p>
+            <h1>People OS</h1>
+          </div>
+        </a>
+      </section>
+
+      <section class="demo-section">
+        <p class="section-label">Agent icons</p>
+        <div class="demo-row">
+          <span class="agent-icon agent-icon-career"><i class="iconoir-medal"></i></span>
+          <span class="agent-icon agent-icon-feedback"><i class="iconoir-message-text"></i></span>
+          <span class="agent-icon agent-icon-learning"><i class="iconoir-graduation-cap"></i></span>
+          <span class="agent-icon agent-icon-travel"><i class="iconoir-compass"></i></span>
+          <span class="agent-icon agent-icon-meeting"><i class="iconoir-calendar"></i></span>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <p class="section-label">Buttons &amp; composer</p>
+        <div class="demo-row">
+          <button type="button" class="primary-button">Primary</button>
+          <button type="button" class="secondary-button">Secondary</button>
+        </div>
+        <div class="chat-composer" style="margin-top: 20px">
+          <div class="input-row input-row-compact">
+            <input type="text" placeholder="Ask People OS…" />
+            <button type="button" class="icon-button send-icon" aria-label="Send">
+              <i class="iconoir-arrow-up"></i>
+            </button>
+          </div>
+        </div>
+        <div class="prompt-grid" style="margin-top: 16px">
+          <button type="button" class="is-selected">Selected prompt</button>
+          <button type="button">Another prompt</button>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <p class="section-label">Status pills</p>
+        <div class="demo-row">
+          <span class="status-pill status-pill-overdue">
+            <span class="status-pill-icon"><i class="iconoir-emoji-sad"></i></span>
+            Overdue
+          </span>
+          <span class="status-pill status-pill-pending">
+            <span class="status-pill-icon"><i class="iconoir-clock"></i></span>
+            Due soon
+          </span>
+          <span class="status-pill status-pill-progress">
+            <span class="status-pill-icon"><i class="iconoir-check"></i></span>
+            In progress
+          </span>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <p class="section-label">Panel</p>
+        <div class="demo-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-label">Tasks</p>
+                <h3>Priority actions</h3>
+              </div>
+              <span class="metric">6 open</span>
+            </div>
+            <p style="margin: 0; color: var(--muted); line-height: 1.55">
+              Card surface, header, and metric chip used across the prototype dashboard.
+            </p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

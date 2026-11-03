@@ -1,0 +1,91 @@
+.primary-button {
+  border: 0;
+  border-radius: var(--nx-radius-pill);
+  background: var(--accent);
+  color: var(--white);
+  font-weight: var(--nx-font-weight-regular);
+  padding: 12px 18px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.04);
+  transition: filter var(--nx-duration-fast) var(--nx-ease-standard);
+}
+
+.primary-button:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.secondary-button,
+.prompt-grid button {
+  border: 1px solid var(--line);
+  border-radius: var(--nx-radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: var(--nx-font-weight-regular);
+}
+
+.secondary-button {
+  padding: 12px 18px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.04);
+}
+
+.prompt-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.prompt-grid button {
+  padding: 10px 22px;
+  transition:
+    background var(--nx-duration-fast) var(--nx-ease-standard),
+    border-color var(--nx-duration-fast) var(--nx-ease-standard),
+    box-shadow var(--nx-duration-fast) var(--nx-ease-standard);
+}
+
+.prompt-grid button.is-selected {
+  border-color: color-mix(in srgb, var(--palette-4) 45%, var(--line));
+  background: color-mix(in srgb, var(--palette-4) 8%, var(--surface));
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+.icon-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--text);
+  transition:
+    background var(--nx-duration-fast) var(--nx-ease-standard),
+    color var(--nx-duration-fast) var(--nx-ease-standard),
+    opacity var(--nx-duration-fast) var(--nx-ease-standard);
+}
+
+.icon-button [class^="iconoir-"] {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.secondary-icon {
+  background: var(--surface-muted);
+}
+
+.secondary-icon:hover:not(:disabled),
+.secondary-icon.listening {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.send-icon {
+  border: 0;
+  background: var(--accent);
+  color: var(--white);
+}
+
+.send-icon:disabled {
+  background: var(--surface-muted);
+  color: #b8bec7;
+  opacity: 1;
+}

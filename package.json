@@ -1,0 +1,27 @@
+{
+  "name": "@michael-olivier/nexus-people-os-design-system",
+  "version": "0.1.0",
+  "description": "Design tokens and UI primitives for Nexus People OS (from Career Coach Agent prototype)",
+  "license": "ISC",
+  "files": [
+    "dist",
+    "tokens",
+    "foundations",
+    "components",
+    "docs"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-olivier/nexus-people-os-design-system.git"
+  },
+  "keywords": [
+    "design-system",
+    "nexus",
+    "people-os",
+    "css"
+  ]
+}

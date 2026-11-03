@@ -1,0 +1,59 @@
+/**
+ * Nexus People OS — design tokens
+ * Source: career-coach-agent prototype (styles.css :root)
+ */
+:root {
+  color-scheme: light;
+
+  /* Brand gradient scale */
+  --nx-palette-1: #7400b8;
+  --nx-palette-2: #6930c3;
+  --nx-palette-3: #5e60ce;
+  --nx-palette-4: #5390d9;
+  --nx-palette-5: #4ea8de;
+  --nx-palette-6: #48bfe3;
+  --nx-palette-7: #56cfe1;
+  --nx-palette-8: #64dfdf;
+  --nx-palette-9: #72efdd;
+  --nx-palette-10: #80ffdb;
+
+  /* Semantic aliases (prototype-compatible) */
+  --palette-1: var(--nx-palette-1);
+  --palette-2: var(--nx-palette-2);
+  --palette-3: var(--nx-palette-3);
+  --palette-4: var(--nx-palette-4);
+  --palette-5: var(--nx-palette-5);
+  --palette-6: var(--nx-palette-6);
+  --palette-7: var(--nx-palette-7);
+  --palette-8: var(--nx-palette-8);
+  --palette-9: var(--nx-palette-9);
+  --palette-10: var(--nx-palette-10);
+
+  --bg: rgb(252, 252, 252);
+  --surface: #ffffff;
+  --surface-muted: #f1f3f4;
+  --text: #202124;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: var(--palette-3);
+  --accent-soft: #e8faf8;
+  --sand: #f3f4f6;
+  --white: #ffffff;
+  --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
+  --nexus-cyan: var(--palette-7);
+
+  /* Typography */
+  --nx-font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nx-font-weight-regular: 400;
+  --nx-font-weight-light: 300;
+
+  /* Radius */
+  --nx-radius-sm: 8px;
+  --nx-radius-md: 16px;
+  --nx-radius-lg: 28px;
+  --nx-radius-pill: 999px;
+
+  /* Motion */
+  --nx-duration-fast: 160ms;
+  --nx-ease-standard: ease;
+}

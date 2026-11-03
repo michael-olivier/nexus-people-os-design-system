@@ -1,0 +1,13 @@
+/*!
+ * Nexus People OS Design System v0.1.0
+ * Entry — prefer dist/nexus-ds.css from npm run build
+ */
+@import "./tokens/tokens.css";
+@import "./foundations/base.css";
+@import "./foundations/typography.css";
+@import "./components/brand.css";
+@import "./components/buttons.css";
+@import "./components/forms.css";
+@import "./components/panels.css";
+@import "./components/status-pill.css";
+@import "./components/agent-icon.css";

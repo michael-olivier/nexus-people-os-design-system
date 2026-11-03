@@ -1,0 +1,49 @@
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: end;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 10px 0 8px;
+  border-radius: var(--nx-radius-pill);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-pill-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  color: inherit;
+}
+
+.status-pill-icon [class^="iconoir-"] {
+  font-size: 14px;
+  color: currentColor;
+  line-height: 1;
+}
+
+.status-pill-overdue {
+  background: #feecef;
+  color: #e11d48;
+}
+
+.status-pill-pending {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.status-pill-progress {
+  background: #ecfdf9;
+  color: #0d9488;
+}
+
+.status-pill-enrolled {
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, var(--line));
+}
