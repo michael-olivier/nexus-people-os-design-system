@@ -1,0 +1,54 @@
+/* Syntax tokens for .ds-code blocks (highlight.js output at build time) */
+.ds-code .hljs {
+  background: transparent;
+  color: #e5e7eb;
+  padding: 0;
+}
+
+.ds-code .hljs-comment,
+.ds-code .hljs-quote {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.ds-code .hljs-keyword,
+.ds-code .hljs-selector-tag,
+.ds-code .hljs-built_in {
+  color: #7db4ff;
+}
+
+.ds-code .hljs-string,
+.ds-code .hljs-regexp,
+.ds-code .hljs-symbol {
+  color: #86efac;
+}
+
+.ds-code .hljs-number,
+.ds-code .hljs-literal {
+  color: #fcd34d;
+}
+
+.ds-code .hljs-title,
+.ds-code .hljs-section,
+.ds-code .hljs-name {
+  color: #e5e7eb;
+}
+
+.ds-code .hljs-attr,
+.ds-code .hljs-attribute,
+.ds-code .hljs-variable,
+.ds-code .hljs-template-variable,
+.ds-code .hljs-type {
+  color: #7dd3fc;
+}
+
+.ds-code .hljs-meta,
+.ds-code .hljs-selector-id,
+.ds-code .hljs-selector-class {
+  color: #c4b5fd;
+}
+
+.ds-code .hljs-punctuation,
+.ds-code .hljs-subst {
+  color: #d1d5db;
+}

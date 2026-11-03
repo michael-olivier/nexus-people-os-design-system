@@ -1,0 +1,45 @@
+<p class="eyebrow">Foundations · Content · Messages</p>
+<h1 class="ds-page-title">Error Message</h1>
+<p class="ds-lede">
+  Error messages describe what failed, why it matters to the user, and how to recover. Be direct,
+  blameless, and specific—avoid generic “Something went wrong” unless nothing else is known.
+</p>
+
+<section class="ds-section">
+  <h2>Writing guidelines</h2>
+  <ul class="ds-content-list">
+    <li>Title: short outcome (“Couldn’t save changes”).</li>
+    <li>Body: cause if known, plus one or two recovery steps.</li>
+    <li>Preserve user input; say if work is still on the page.</li>
+    <li>Use present tense for ongoing issues; past tense when an action clearly finished.</li>
+  </ul>
+
+  <h3>Example</h3>
+  <div class="ds-preview">
+    <div class="ds-msg-grid">
+      <div class="ds-msg ds-msg--error" role="alert">
+        <span class="ds-msg-icon"><i data-lucide="circle-x" aria-hidden="true"></i></span>
+        <div class="ds-msg-body">
+          <p class="ds-msg-title">Couldn’t save development plan</p>
+          <p class="ds-msg-text">
+            Check your connection and try again. Your edits are still on this page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <h2>Do / Don’t</h2>
+  <div class="ds-example-pair">
+    <div class="ds-example ds-example--do">
+      <p class="ds-example-label ds-example-label--do"><i data-lucide="circle-check" aria-hidden="true"></i> Do</p>
+      <p>We can’t load this profile. Refresh the page or contact your admin if it keeps happening.</p>
+    </div>
+    <div class="ds-example ds-example--dont">
+      <p class="ds-example-label ds-example-label--dont"><i data-lucide="circle-x" aria-hidden="true"></i> Don’t</p>
+      <p>Error 500. An unexpected error occurred.</p>
+    </div>
+  </div>
+</section>

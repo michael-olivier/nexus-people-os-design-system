@@ -1,33 +1,39 @@
 <p class="eyebrow">Get started</p>
 <h1 class="ds-page-title">Get started</h1>
-<p class="ds-lede">Add Nexus People OS styles to a static HTML app or prototype shell.</p>
+<p class="ds-lede">
+  Start designing and building Nexus People OS experiences with shared tokens, components, and content
+  standards—whether you’re in Figma, a static prototype, or the Career Coach Agent shell.
+</p>
+
+<div class="ds-card-grid">
+  <a class="ds-tile" href="overview/index.html">
+    <p class="section-label">Get started</p>
+    <h3>Overview</h3>
+    <p>Install the CSS bundle, fonts, and icons in your project.</p>
+  </a>
+  <a class="ds-tile" href="design/index.html">
+    <p class="section-label">Get started</p>
+    <h3>Design</h3>
+    <p>Figma import, tokens, and how to spec components for handoff.</p>
+  </a>
+  <a class="ds-tile" href="develop/index.html">
+    <p class="section-label">Get started</p>
+    <h3>Develop</h3>
+    <p>Build scripts, site gallery, and integrating the design system in code.</p>
+  </a>
+  <a class="ds-tile" href="about/index.html">
+    <p class="section-label">Get started</p>
+    <h3>About the Design System</h3>
+    <p>Scope, source of truth, and how this library relates to product work.</p>
+  </a>
+</div>
 
 <section class="ds-section">
-  <h2>Install the CSS bundle</h2>
-  <p>Clone this repository or copy <code>dist/nexus-ds.css</code> into your project.</p>
-  <pre class="ds-code">&lt;link rel="stylesheet" href="./design-system/nexus-ds.css" /&gt;</pre>
-</section>
-
-<section class="ds-section">
-  <h2>Fonts &amp; icons</h2>
-  <p>Load Inter (300/400) and Iconoir — components assume <code>iconoir-*</code> classes.</p>
-  <pre class="ds-code">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet" /&gt;
-&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" /&gt;</pre>
-</section>
-
-<section class="ds-section">
-  <h2>Build from source</h2>
-  <pre class="ds-code">npm run build      # dist/nexus-ds.css
-npm run build:site # documentation gallery → site-dist/</pre>
-</section>
-
-<section class="ds-section">
-  <h2>Integrate with Career Coach Agent</h2>
-  <p>
-    See
-    <a href="https://github.com/michael-olivier/nexus-people-os-design-system/blob/main/documentation/integration-career-coach.md"
-      >integration guide</a
-    >
-    for migrating the prototype off monolithic <code>styles.css</code>.
-  </p>
+  <h2>Quick links</h2>
+  <ul class="ds-content-list">
+    <li><a href="{{root}}foundations/color/index.html">Color tokens</a></li>
+    <li><a href="{{root}}foundations/icons/index.html">Icon gallery</a></li>
+    <li><a href="{{root}}components/buttons/index.html">Button previews</a></li>
+    <li><a href="{{root}}foundations/content/index.html">Content guidelines</a></li>
+  </ul>
 </section>

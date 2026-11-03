@@ -11,16 +11,15 @@
   color-scheme: light;
 
   /* Brand gradient scale */
-  --nx-palette-1: #7400b8;
-  --nx-palette-2: #6930c3;
-  --nx-palette-3: #5e60ce;
-  --nx-palette-4: #5390d9;
-  --nx-palette-5: #4ea8de;
-  --nx-palette-6: #48bfe3;
-  --nx-palette-7: #56cfe1;
-  --nx-palette-8: #64dfdf;
-  --nx-palette-9: #72efdd;
-  --nx-palette-10: #80ffdb;
+  --nx-palette-1: #357DE8;
+  --nx-palette-2: #2898BD;
+  --nx-palette-3: #22A06B;
+  --nx-palette-4: #6A9A23;
+  --nx-palette-5: #B38600;
+  --nx-palette-6: #E06C00;
+  --nx-palette-7: #E2483D;
+  --nx-palette-8: #CD519D;
+  --nx-palette-9: #AF59E1;
 
   /* Semantic aliases (prototype-compatible) */
   --palette-1: var(--nx-palette-1);
@@ -32,16 +31,15 @@
   --palette-7: var(--nx-palette-7);
   --palette-8: var(--nx-palette-8);
   --palette-9: var(--nx-palette-9);
-  --palette-10: var(--nx-palette-10);
 
-  --bg: rgb(252, 252, 252);
+  --bg: rgb(247, 248, 249);
   --surface: #ffffff;
   --surface-muted: #f1f3f4;
   --text: #202124;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --accent: var(--palette-3);
-  --accent-soft: #e8faf8;
+  --muted: #8C8F97;
+  --line: #DDDEE1;
+  --accent: #357de8;
+  --accent-soft: #CFE1FD;
   --sand: #f3f4f6;
   --white: #ffffff;
   --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
@@ -99,6 +97,12 @@ button {
 
 button:disabled {
   cursor: not-allowed;
+}
+
+svg.lucide {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
 }
 
 .sr-only {
@@ -198,10 +202,11 @@ a.brand:hover {
   padding: 0;
   background: transparent;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .brand-mark--logo img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .primary-button {
@@ -269,9 +274,9 @@ a.brand:hover {
     opacity var(--nx-duration-fast) var(--nx-ease-standard);
 }
 
-.icon-button [class^="iconoir-"] {
-  font-size: 20px;
-  line-height: 1;
+.icon-button svg.lucide {
+  width: 20px;
+  height: 20px;
 }
 
 .secondary-icon {
@@ -405,7 +410,7 @@ a.brand:hover {
   color: inherit;
 }
 
-.status-pill-icon [class^="iconoir-"] {
+.status-pill-icon svg.lucide {
   font-size: 14px;
   color: currentColor;
   line-height: 1;
@@ -441,7 +446,7 @@ a.brand:hover {
   border-radius: var(--nx-radius-sm);
 }
 
-.agent-icon [class^="iconoir-"] {
+.agent-icon svg.lucide {
   font-size: 16px;
   line-height: 1;
 }
@@ -489,6 +494,6 @@ a.brand:hover {
   border-radius: 10px;
 }
 
-.agent-icon-lg [class^="iconoir-"] {
+.agent-icon-lg svg.lucide {
   font-size: 18px;
 }

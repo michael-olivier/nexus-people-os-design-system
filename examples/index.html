@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" />
+    <script src="../assets/vendor/lucide.min.js" defer></script>
     <link rel="stylesheet" href="../dist/nexus-ds.css" />
     <style>
       .demo-page {
@@ -69,11 +69,11 @@
       <section class="demo-section">
         <p class="section-label">Agent icons</p>
         <div class="demo-row">
-          <span class="agent-icon agent-icon-career"><i class="iconoir-medal"></i></span>
-          <span class="agent-icon agent-icon-feedback"><i class="iconoir-message-text"></i></span>
-          <span class="agent-icon agent-icon-learning"><i class="iconoir-graduation-cap"></i></span>
-          <span class="agent-icon agent-icon-travel"><i class="iconoir-compass"></i></span>
-          <span class="agent-icon agent-icon-meeting"><i class="iconoir-calendar"></i></span>
+          <span class="agent-icon agent-icon-career"><i data-lucide="medal"></i></span>
+          <span class="agent-icon agent-icon-feedback"><i data-lucide="message-square-text"></i></span>
+          <span class="agent-icon agent-icon-learning"><i data-lucide="graduation-cap"></i></span>
+          <span class="agent-icon agent-icon-travel"><i data-lucide="compass"></i></span>
+          <span class="agent-icon agent-icon-meeting"><i data-lucide="calendar"></i></span>
         </div>
       </section>
 
@@ -87,7 +87,7 @@
           <div class="input-row input-row-compact">
             <input type="text" placeholder="Ask People OS…" />
             <button type="button" class="icon-button send-icon" aria-label="Send">
-              <i class="iconoir-arrow-up"></i>
+              <i data-lucide="arrow-up"></i>
             </button>
           </div>
         </div>
@@ -101,15 +101,15 @@
         <p class="section-label">Status pills</p>
         <div class="demo-row">
           <span class="status-pill status-pill-overdue">
-            <span class="status-pill-icon"><i class="iconoir-emoji-sad"></i></span>
+            <span class="status-pill-icon"><i data-lucide="frown"></i></span>
             Overdue
           </span>
           <span class="status-pill status-pill-pending">
-            <span class="status-pill-icon"><i class="iconoir-clock"></i></span>
+            <span class="status-pill-icon"><i data-lucide="clock"></i></span>
             Due soon
           </span>
           <span class="status-pill status-pill-progress">
-            <span class="status-pill-icon"><i class="iconoir-check"></i></span>
+            <span class="status-pill-icon"><i data-lucide="check"></i></span>
             In progress
           </span>
         </div>
@@ -133,5 +133,10 @@
         </div>
       </section>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        lucide?.createIcons({ attrs: { "stroke-width": "1.5" } });
+      });
+    </script>
   </body>
 </html>

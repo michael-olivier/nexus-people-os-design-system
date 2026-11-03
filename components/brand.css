@@ -38,8 +38,9 @@ a.brand:hover {
   padding: 0;
   background: transparent;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 .brand-mark--logo img {
-  object-fit: cover;
+  object-fit: contain;
 }

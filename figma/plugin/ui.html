@@ -20,6 +20,7 @@
         margin: 0;
         line-height: 1.45;
         color: #6b7280;
+        font-size: 11px;
       }
       button {
         padding: 8px 12px;
@@ -29,44 +30,68 @@
         color: #fff;
         cursor: pointer;
         font: inherit;
+        text-align: left;
       }
       button.secondary {
         background: #f1f3f4;
         color: #202124;
       }
-      textarea {
-        width: 100%;
-        min-height: 72px;
-        box-sizing: border-box;
-        font:
-          11px ui-monospace,
-          monospace;
-        border: 1px solid #e5e7eb;
-        border-radius: 8px;
-        padding: 8px;
+      input[type="file"] {
+        font-size: 11px;
+      }
+      .error {
+        color: #e11d48;
+        font-size: 11px;
       }
     </style>
   </head>
   <body>
     <main>
       <p>
-        Builds color variables and component frames from <code>nexus-spec.json</code> (generated from
-        CSS in the design-system repo).
+        Builds color variables and component frames from <strong>nexus-spec.json</strong>. If GitHub
+        import fails, use the local file from <code>figma/nexus-spec.json</code>.
       </p>
-      <button id="import-github" type="button">Import latest spec from GitHub</button>
-      <button id="import-file" class="secondary" type="button">Import from pasted JSON</button>
-      <textarea id="spec" placeholder="Paste nexus-spec.json here…" hidden></textarea>
+      <button id="import-github" type="button">Import from GitHub</button>
+      <label class="secondary" style="display: block; padding: 8px 0">
+        <span style="display: block; margin-bottom: 6px">Or choose local spec file:</span>
+        <input id="file" type="file" accept=".json,application/json" />
+      </label>
+      <p id="status" class="error" hidden></p>
     </main>
     <script>
-      const specEl = document.getElementById("spec");
+      const fileInput = document.getElementById("file");
+      const status = document.getElementById("status");
+
       document.getElementById("import-github").onclick = () => {
+        status.hidden = true;
         parent.postMessage({ pluginMessage: { type: "import-url" } }, "*");
       };
-      document.getElementById("import-file").onclick = () => {
-        specEl.hidden = false;
-        const text = specEl.value.trim();
-        if (text) {
-          parent.postMessage({ pluginMessage: { type: "import-json", spec: text } }, "*");
+
+      fileInput.onchange = () => {
+        status.hidden = true;
+        const file = fileInput.files?.[0];
+        if (!file) {
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => {
+          parent.postMessage(
+            { pluginMessage: { type: "import-json", spec: reader.result } },
+            "*",
+          );
+        };
+        reader.onerror = () => {
+          status.textContent = "Could not read file.";
+          status.hidden = false;
+        };
+        reader.readAsText(file);
+      };
+
+      window.onmessage = (event) => {
+        const msg = event.data.pluginMessage;
+        if (msg?.type === "error") {
+          status.textContent = msg.message;
+          status.hidden = false;
         }
       };
     </script>

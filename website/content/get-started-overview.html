@@ -1,0 +1,47 @@
+<p class="eyebrow">Get started</p>
+<h1 class="ds-page-title">Overview</h1>
+<p class="ds-lede">Add Nexus People OS styles to a static HTML app or prototype shell.</p>
+
+<section class="ds-section">
+  <h2>Install the CSS bundle</h2>
+  <p>Clone this repository or copy <code>dist/nexus-ds.css</code> into your project.</p>
+  <pre class="ds-code"><code class="language-html"><link rel="stylesheet" href="./design-system/nexus-ds.css" /></code></pre>
+</section>
+
+<section class="ds-section">
+  <h2>Fonts &amp; icons</h2>
+  <p>
+    Load Inter (300/400) and Lucide from <code>assets/vendor/lucide.min.js</code> (synced via
+    <code>npm run icons:sync</code>). Browse every icon on the
+    <a href="{{root}}foundations/icons/index.html">Icons</a> page.
+  </p>
+  <pre class="ds-code"><code class="language-html"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+<script src="./assets/vendor/lucide.min.js" defer></script>
+<i data-lucide="search" aria-hidden="true"></i>
+<script>lucide.createIcons();</script></code></pre>
+</section>
+
+<section class="ds-section">
+  <h2>Build from source</h2>
+  <div class="ds-snippet ds-snippet--terminal">
+    <div class="ds-snippet-header" aria-hidden="true">
+      <span class="ds-snippet-dot ds-snippet-dot--red"></span>
+      <span class="ds-snippet-dot ds-snippet-dot--yellow"></span>
+      <span class="ds-snippet-dot ds-snippet-dot--green"></span>
+      <span class="ds-snippet-label">Terminal</span>
+    </div>
+    <pre class="ds-code"><code class="language-bash">npm run build      # dist/nexus-ds.css
+npm run build:site # documentation gallery → site-dist/</code></pre>
+  </div>
+</section>
+
+<section class="ds-section">
+  <h2>Integrate with Career Coach Agent</h2>
+  <p>
+    See
+    <a href="https://github.com/michael-olivier/nexus-people-os-design-system/blob/main/documentation/integration-career-coach.md"
+      >integration guide</a
+    >
+    for migrating the prototype off monolithic <code>styles.css</code>.
+  </p>
+</section>

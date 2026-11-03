@@ -21,7 +21,7 @@
   color: inherit;
 }
 
-.status-pill-icon [class^="iconoir-"] {
+.status-pill-icon svg.lucide {
   font-size: 14px;
   color: currentColor;
   line-height: 1;

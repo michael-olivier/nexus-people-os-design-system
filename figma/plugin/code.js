@@ -1,10 +1,16 @@
 const SPEC_URL =
   "https://raw.githubusercontent.com/michael-olivier/nexus-people-os-design-system/main/figma/nexus-spec.json";
 
-figma.showUI(__html__, { width: 360, height: 220 });
+figma.showUI(__html__, { width: 380, height: 260 });
+
+/** @type {{ family: string, style: string } | null} */
+let defaultFont = null;
 
 const hexToRgb = (hex) => {
-  const normalized = hex.replace("#", "");
+  if (!hex || typeof hex !== "string") {
+    return { r: 0.9, g: 0.9, b: 0.9 };
+  }
+  const normalized = hex.replace("#", "").trim();
   const full =
     normalized.length === 3
       ? normalized
@@ -13,6 +19,9 @@ const hexToRgb = (hex) => {
           .join("")
       : normalized;
   const int = Number.parseInt(full, 16);
+  if (Number.isNaN(int)) {
+    return { r: 0.9, g: 0.9, b: 0.9 };
+  }
   return {
     r: ((int >> 16) & 255) / 255,
     g: ((int >> 8) & 255) / 255,
@@ -21,8 +30,13 @@ const hexToRgb = (hex) => {
 };
 
 const tokenColor = (spec, cssVarName) => {
-  const key = cssVarName?.replace(/^var\(/, "").replace(/\)$/, "").trim();
-  const entry = spec.tokens.colors.find((c) => c.cssVar === key || c.name === key?.replace(/^--/, ""));
+  if (!cssVarName || typeof cssVarName !== "string") {
+    return { r: 0.9, g: 0.9, b: 0.9 };
+  }
+  const key = cssVarName.replace(/^var\(/, "").replace(/\)$/, "").trim();
+  const entry = spec.tokens.colors.find(
+    (c) => c.cssVar === key || c.name === key.replace(/^--/, ""),
+  );
   return entry?.hex ? hexToRgb(entry.hex) : { r: 0.9, g: 0.9, b: 0.9 };
 };
 
@@ -32,21 +46,66 @@ const styleFromClasses = (spec, classes) => {
   return { rule, primary };
 };
 
+const clearFrameFills = (node) => {
+  node.fills = [{ type: "SOLID", color: { r: 1, g: 1, b: 1 }, opacity: 0 }];
+};
+
 async function ensureFont() {
-  await figma.loadFontAsync({ family: "Inter", style: "Regular" });
+  if (defaultFont) {
+    return defaultFont;
+  }
+
+  const candidates = [
+    { family: "Inter", style: "Regular" },
+    { family: "Inter", style: "Medium" },
+    { family: "Roboto", style: "Regular" },
+    { family: "Arial", style: "Regular" },
+  ];
+
+  for (const font of candidates) {
+    try {
+      await figma.loadFontAsync(font);
+      defaultFont = font;
+      return font;
+    } catch {
+      // try next
+    }
+  }
+
+  throw new Error("Could not load Inter or Roboto. Install Inter in Figma or use a Google Fonts account.");
+}
+
+async function createText(characters, size = 14) {
+  const font = await ensureFont();
+  const text = figma.createText();
+  text.fontName = font;
+  text.fontSize = size;
+  text.characters = characters;
+  return text;
 }
 
 async function createColorVariables(spec) {
-  const existing = figma.variables.getLocalVariableCollections().find((c) => c.name === "Nexus / Colors");
+  if (!figma.variables) {
+    return null;
+  }
+
+  const collections = await figma.variables.getLocalVariableCollectionsAsync();
+  const existing = collections.find((c) => c.name === "Nexus / Colors");
   if (existing) {
     existing.remove();
   }
 
   const collection = figma.variables.createVariableCollection("Nexus / Colors");
   const modeId = collection.modes[0].modeId;
+  const usedNames = new Set();
 
   for (const color of spec.tokens.colors) {
-    const variable = figma.variables.createVariable(color.name, collection, "COLOR");
+    let name = color.name.replace(/[^a-zA-Z0-9/_-]/g, "-");
+    if (usedNames.has(name)) {
+      continue;
+    }
+    usedNames.add(name);
+    const variable = figma.variables.createVariable(name, collection, "COLOR");
     variable.setValueForMode(modeId, hexToRgb(color.hex));
   }
 
@@ -61,31 +120,32 @@ async function createTokenSwatches(spec, page) {
   wrap.paddingLeft = wrap.paddingRight = wrap.paddingTop = wrap.paddingBottom = 16;
   wrap.primaryAxisSizingMode = "AUTO";
   wrap.counterAxisSizingMode = "AUTO";
-  wrap.layoutWrap = "WRAP";
   wrap.fills = [{ type: "SOLID", color: { r: 1, g: 1, b: 1 } }];
   wrap.strokes = [{ type: "SOLID", color: { r: 0.9, g: 0.9, b: 0.92 } }];
   wrap.cornerRadius = 16;
   page.appendChild(wrap);
 
   for (const color of spec.tokens.colors) {
+    const column = figma.createFrame();
+    column.name = color.name;
+    column.layoutMode = "VERTICAL";
+    column.itemSpacing = 8;
+    column.primaryAxisSizingMode = "AUTO";
+    column.counterAxisSizingMode = "AUTO";
+    clearFrameFills(column);
+
     const chip = figma.createFrame();
-    chip.name = color.name;
-    chip.resize(120, 96);
-    chip.layoutMode = "VERTICAL";
-    chip.primaryAxisSizingMode = "FIXED";
-    chip.counterAxisSizingMode = "FIXED";
-    chip.fills = [{ type: "SOLID", color: hexToRgb(color.hex) }];
+    chip.resize(100, 72);
     chip.cornerRadius = 12;
+    chip.fills = [{ type: "SOLID", color: hexToRgb(color.hex) }];
+    chip.layoutMode = "NONE";
+    column.appendChild(chip);
 
-    const label = figma.createText();
-    label.characters = `${color.name}\n${color.hex}`;
-    label.fontSize = 10;
+    const label = await createText(`${color.name}\n${color.hex}`, 10);
     label.fills = [{ type: "SOLID", color: { r: 0.2, g: 0.2, b: 0.22 } }];
-    label.y = 104;
-    label.x = 0;
+    column.appendChild(label);
 
-    wrap.appendChild(chip);
-    chip.appendChild(label);
+    wrap.appendChild(column);
   }
 }
 
@@ -108,13 +168,9 @@ async function createButton(spec, specimen) {
   if (rule.border || rule.borderWidth) {
     frame.strokes = [{ type: "SOLID", color: tokenColor(spec, "var(--line)") }];
     frame.strokeWeight = 1;
-  } else {
-    frame.strokes = [];
   }
 
-  const text = figma.createText();
-  text.characters = specimen.text;
-  text.fontSize = 14;
+  const text = await createText(specimen.text, 14);
   text.fills = [{ type: "SOLID", color: tokenColor(spec, color) }];
   frame.appendChild(text);
   return frame;
@@ -143,6 +199,18 @@ async function createSpecimen(spec, specimen) {
         text.fills = [{ type: "SOLID", color: hexToRgb("#e11d48") }];
       }
     }
+    if (variant === "status-pill-pending") {
+      frame.fills = [{ type: "SOLID", color: hexToRgb("#fff7ed") }];
+      if (text) {
+        text.fills = [{ type: "SOLID", color: hexToRgb("#ea580c") }];
+      }
+    }
+    if (variant === "status-pill-progress") {
+      frame.fills = [{ type: "SOLID", color: hexToRgb("#ecfdf9") }];
+      if (text) {
+        text.fills = [{ type: "SOLID", color: hexToRgb("#0d9488") }];
+      }
+    }
     return frame;
   }
 
@@ -169,18 +237,31 @@ async function createSpecimen(spec, specimen) {
   if (specimen.kind === "input-row") {
     const frame = figma.createFrame();
     frame.name = "Input row";
+    frame.layoutMode = "NONE";
     frame.resize(360, 52);
     frame.cornerRadius = 999;
     frame.fills = [{ type: "SOLID", color: tokenColor(spec, "var(--surface)") }];
     frame.strokes = [{ type: "SOLID", color: tokenColor(spec, "var(--line)") }];
     frame.strokeWeight = 1;
-    const text = figma.createText();
-    text.characters = specimen.text;
-    text.fontSize = 14;
+    const text = await createText(specimen.text, 14);
     text.fills = [{ type: "SOLID", color: hexToRgb("#9ca3af") }];
     text.x = 16;
     text.y = 16;
     frame.appendChild(text);
+    return frame;
+  }
+
+  if (specimen.kind === "brand") {
+    const frame = figma.createFrame();
+    frame.name = "Brand";
+    frame.layoutMode = "HORIZONTAL";
+    frame.itemSpacing = 12;
+    frame.primaryAxisSizingMode = "AUTO";
+    frame.counterAxisSizingMode = "AUTO";
+    frame.paddingLeft = frame.paddingRight = frame.paddingTop = frame.paddingBottom = 8;
+    frame.fills = [{ type: "SOLID", color: { r: 1, g: 1, b: 1 } }];
+    const title = await createText("Nexus People OS", 14);
+    frame.appendChild(title);
     return frame;
   }
 
@@ -192,8 +273,13 @@ async function createSpecimen(spec, specimen) {
 }
 
 async function buildLibrary(spec) {
+  if (!spec?.tokens?.colors?.length) {
+    throw new Error("Invalid spec: missing tokens.colors");
+  }
+
   await ensureFont();
   await createColorVariables(spec);
+  await figma.loadAllPagesAsync();
 
   let tokensPage = figma.root.children.find((p) => p.name === "Tokens");
   if (!tokensPage) {
@@ -207,19 +293,19 @@ async function buildLibrary(spec) {
     componentsPage.name = "Components";
   }
 
-  figma.currentPage = tokensPage;
+  await figma.setCurrentPageAsync(tokensPage);
   for (const child of [...tokensPage.children]) {
     child.remove();
   }
   await createTokenSwatches(spec, tokensPage);
 
-  figma.currentPage = componentsPage;
+  await figma.setCurrentPageAsync(componentsPage);
   for (const child of [...componentsPage.children]) {
     child.remove();
   }
 
   let y = 0;
-  const byPage = groupByPage(spec.specimens);
+  const byPage = groupByPage(spec.specimens ?? []);
 
   for (const [pageName, items] of Object.entries(byPage)) {
     const section = figma.createFrame();
@@ -231,22 +317,19 @@ async function buildLibrary(spec) {
     section.counterAxisSizingMode = "AUTO";
     section.x = 0;
     section.y = y;
-    section.fills = [];
+    clearFrameFills(section);
     componentsPage.appendChild(section);
 
-    const heading = figma.createText();
-    heading.characters = pageName;
-    heading.fontSize = 18;
+    const heading = await createText(pageName, 18);
     section.appendChild(heading);
 
     const row = figma.createFrame();
     row.name = "Specimens";
     row.layoutMode = "HORIZONTAL";
     row.itemSpacing = 12;
-    row.layoutWrap = "WRAP";
     row.primaryAxisSizingMode = "AUTO";
     row.counterAxisSizingMode = "AUTO";
-    row.fills = [];
+    clearFrameFills(row);
     section.appendChild(row);
 
     for (const specimen of items) {
@@ -254,14 +337,17 @@ async function buildLibrary(spec) {
       row.appendChild(node);
     }
 
-    section.layoutSizingHorizontal = "HUG";
-    section.layoutSizingVertical = "HUG";
     y += section.height + 48;
   }
 
-  figma.currentPage = componentsPage;
-  figma.viewport.scrollAndZoomIntoView(componentsPage.children);
-  figma.closePlugin(`Imported ${spec.specimens.length} specimens and ${spec.tokens.colors.length} colors.`);
+  await figma.setCurrentPageAsync(componentsPage);
+  if (componentsPage.children.length) {
+    figma.viewport.scrollAndZoomIntoView(componentsPage.children);
+  }
+
+  figma.closePlugin(
+    `Imported ${spec.specimens?.length ?? 0} specimens and ${spec.tokens.colors.length} colors.`,
+  );
 }
 
 function groupByPage(specimens) {
@@ -272,12 +358,17 @@ function groupByPage(specimens) {
   }, {});
 }
 
+function fail(message) {
+  figma.ui.postMessage({ type: "error", message });
+  figma.closePlugin(`Import failed: ${message}`);
+}
+
 figma.ui.onmessage = async (msg) => {
   try {
     if (msg.type === "import-url") {
       const res = await fetch(SPEC_URL);
       if (!res.ok) {
-        throw new Error(`Fetch failed (${res.status})`);
+        throw new Error(`GitHub fetch failed (${res.status}). Use the local file picker instead.`);
       }
       const spec = await res.json();
       await buildLibrary(spec);
@@ -285,10 +376,10 @@ figma.ui.onmessage = async (msg) => {
     }
 
     if (msg.type === "import-json") {
-      const spec = JSON.parse(msg.spec);
+      const spec = typeof msg.spec === "string" ? JSON.parse(msg.spec) : msg.spec;
       await buildLibrary(spec);
     }
   } catch (error) {
-    figma.closePlugin(`Import failed: ${error.message}`);
+    fail(error?.message ?? String(error));
   }
 };

@@ -1,0 +1,67 @@
+<p class="eyebrow">Foundations</p>
+<h1 class="ds-page-title">Icons</h1>
+<p class="ds-lede">
+  <a href="https://lucide.dev/icons/" target="_blank" rel="noopener noreferrer">Lucide</a> is bundled as
+  <code>assets/vendor/lucide.min.js</code>. Mark icons with <code>data-lucide</code>, then call
+  <code>lucide.createIcons()</code> after the DOM is ready (or when you add nodes dynamically).
+</p>
+
+<section class="ds-section ds-icon-section" id="icon-gallery">
+  <div class="ds-icon-install">
+    <h2 class="ds-icon-install-title">Install in your app</h2>
+    <pre class="ds-code"><code class="language-html"><script src="./assets/vendor/lucide.min.js" defer></script>
+<i data-lucide="search" aria-hidden="true"></i>
+<script>lucide.createIcons();</script></code></pre>
+  </div>
+  <div class="ds-icon-toolbar">
+    <label class="ds-icon-field ds-icon-field-full">
+      <span class="ds-icon-field-label">Search</span>
+      <input
+        type="search"
+        id="icon-search"
+        class="ds-icon-search"
+        placeholder="Filter by name… e.g. arrow, user, calendar"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </label>
+  </div>
+  <div class="ds-icon-customizer">
+    <div class="ds-icon-customizer-row">
+      <div class="ds-icon-customizer-block">
+        <span class="ds-icon-field-label">Size</span>
+        <div class="ds-icon-size-tabs" role="tablist" aria-label="Icon preview size">
+          <button type="button" class="ds-icon-size-tab is-active" role="tab" data-size="24" aria-selected="true">Small</button>
+          <button type="button" class="ds-icon-size-tab" role="tab" data-size="48" aria-selected="false">Medium</button>
+          <button type="button" class="ds-icon-size-tab" role="tab" data-size="72" aria-selected="false">Large</button>
+        </div>
+      </div>
+      <div class="ds-icon-customizer-block ds-icon-customizer-stroke">
+        <span class="ds-icon-field-label">Stroke width</span>
+        <div class="ds-icon-stroke-control">
+          <input
+            type="range"
+            id="icon-stroke"
+            class="ds-icon-stroke"
+            min="0.5"
+            max="3"
+            step="0.25"
+            value="1.5"
+            aria-valuemin="0.5"
+            aria-valuemax="3"
+            aria-valuenow="1.5"
+            aria-label="Stroke width in pixels"
+          />
+          <span class="ds-icon-stroke-value" id="icon-stroke-value">1.5px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="ds-icon-meta" id="icon-count" aria-live="polite"></p>
+  <div class="ds-icon-grid" id="icon-grid" role="list"></div>
+  <p class="ds-icon-empty" id="icon-empty" hidden>No icons match your search.</p>
+  <div id="ds-icon-toast" class="ds-toast" role="status" aria-live="polite" hidden></div>
+  <p class="ds-icon-attribution">Copyright (c) 2026 Lucide Icons and Contributors</p>
+</section>
+
+<script src="{{root}}assets/icons-gallery.js" defer></script>

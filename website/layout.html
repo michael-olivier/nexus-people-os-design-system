@@ -10,9 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" />
     <link rel="stylesheet" href="{{root}}design-system/nexus-ds.css" />
     <link rel="stylesheet" href="{{root}}assets/docs.css" />
+    <link rel="stylesheet" href="{{root}}assets/docs-code.css" />
   </head>
   <body class="ds-body" data-active-section="{{activeSection}}" data-active-page="{{activePage}}">
     <div class="ds-shell">
@@ -35,15 +35,18 @@
           </nav>
           <button type="button" class="ds-menu-button" id="ds-menu-button" aria-expanded="false" aria-controls="ds-sidebar">
             <span class="sr-only">Menu</span>
-            <i class="iconoir-menu" aria-hidden="true"></i>
+            <i data-lucide="menu" aria-hidden="true"></i>
           </button>
         </div>
       </header>
       <div class="ds-frame">
-        <aside class="ds-sidebar" id="ds-sidebar" aria-label="Sidebar">{{sidebar}}</aside>
+        <div class="ds-sidebar-rail">
+          <aside class="ds-sidebar" id="ds-sidebar" aria-label="Sidebar">{{sidebar}}</aside>
+        </div>
         <main class="ds-main" id="main-content">{{content}}</main>
       </div>
     </div>
+    <script src="{{root}}assets/vendor/lucide.min.js" defer></script>
     <script src="{{root}}assets/docs.js" defer></script>
   </body>
 </html>

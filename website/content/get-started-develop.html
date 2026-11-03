@@ -1,0 +1,50 @@
+<p class="eyebrow">Get started</p>
+<h1 class="ds-page-title">Develop</h1>
+<p class="ds-lede">
+  Consume the bundled CSS, sync icons, and run the documentation site locally when you change tokens or
+  components.
+</p>
+
+<section class="ds-section">
+  <h2>Repository scripts</h2>
+  <div class="ds-snippet ds-snippet--terminal">
+    <div class="ds-snippet-header" aria-hidden="true">
+      <span class="ds-snippet-dot ds-snippet-dot--red"></span>
+      <span class="ds-snippet-dot ds-snippet-dot--yellow"></span>
+      <span class="ds-snippet-dot ds-snippet-dot--green"></span>
+      <span class="ds-snippet-label">Terminal</span>
+    </div>
+    <pre class="ds-code"><code class="language-bash">npm install
+npm run build          # dist/nexus-ds.css from partials
+npm run icons:sync     # lucide.min.js → assets/vendor/
+npm run build:site     # site-dist/ documentation
+npm run dev:site       # build + serve on :8770</code></pre>
+  </div>
+</section>
+
+<section class="ds-section">
+  <h2>Using components</h2>
+  <p>
+    Class names match the previews under
+    <a href="{{root}}components/index.html">Components</a>. Load
+    <code>dist/nexus-ds.css</code> once, then apply the documented markup.
+  </p>
+  <ul class="ds-content-list">
+    <li>Call <code>lucide.createIcons()</code> after DOM updates for icon buttons and pills.</li>
+    <li>Override sparingly—extend tokens in <code>tokens/tokens.css</code> when possible.</li>
+  </ul>
+</section>
+
+<section class="ds-section">
+  <h2>Documentation site</h2>
+  <p>
+    Content pages live in <code>website/content/</code> and compile via
+    <code>scripts/build-website.mjs</code>. Add a page entry in that script and
+    <code>website/nav.json</code> when you introduce new docs.
+  </p>
+  <p>
+    Code blocks use <code>&lt;pre class="ds-code"&gt;&lt;code class="language-…"&gt;</code> and are
+    colorized at build time. See <code>website/content/_snippet-reference.html</code> for the terminal
+    snippet pattern.
+  </p>
+</section>

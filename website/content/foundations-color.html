@@ -1,32 +1,24 @@
 <p class="eyebrow">Foundations</p>
 <h1 class="ds-page-title">Color</h1>
-<p class="ds-lede">One brand gradient plus semantic surface and text tokens.</p>
+<p class="ds-lede">Nine-step brand gradient plus semantic surface and text tokens. Swatches are generated from <code>tokens/tokens.css</code> at site build time.</p>
 
 <section class="ds-section">
   <h2>Palette</h2>
   <div class="ds-swatches">
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#7400b8"></div><div class="ds-swatch-meta"><strong>palette-1</strong><span>#7400b8</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#6930c3"></div><div class="ds-swatch-meta"><strong>palette-2</strong><span>#6930c3</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#5e60ce"></div><div class="ds-swatch-meta"><strong>palette-3 / accent</strong><span>#5e60ce</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#5390d9"></div><div class="ds-swatch-meta"><strong>palette-4</strong><span>#5390d9</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#4ea8de"></div><div class="ds-swatch-meta"><strong>palette-5</strong><span>#4ea8de</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:#56cfe1"></div><div class="ds-swatch-meta"><strong>palette-7 / nexus-cyan</strong><span>#56cfe1</span></div></div>
+    {{paletteSwatches}}
   </div>
 </section>
 
 <section class="ds-section">
   <h2>Semantic tokens</h2>
   <div class="ds-swatches">
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:var(--bg)"></div><div class="ds-swatch-meta"><strong>--bg</strong><span>Page background</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:var(--surface)"></div><div class="ds-swatch-meta"><strong>--surface</strong><span>Cards &amp; inputs</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:var(--text)"></div><div class="ds-swatch-meta"><strong>--text</strong><span>Primary text</span></div></div>
-    <div class="ds-swatch"><div class="ds-swatch-chip" style="background:var(--muted)"></div><div class="ds-swatch-meta"><strong>--muted</strong><span>Secondary text</span></div></div>
+    {{semanticSwatches}}
   </div>
 </section>
 
 <section class="ds-section">
   <h2>CSS</h2>
-  <pre class="ds-code">color: var(--text);
+  <pre class="ds-code"><code class="language-css">color: var(--text);
 background: var(--surface);
-border-color: var(--line);</pre>
+border-color: var(--line);</code></pre>
 </section>

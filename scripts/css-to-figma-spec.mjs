@@ -6,63 +6,10 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { figmaColorEntries, parseTokensCss } from "./parse-tokens-css.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sources = JSON.parse(readFileSync(join(root, "figma/sources.json"), "utf8"));
-
-const HEX_RE = /#([0-9a-f]{3,8})\b/i;
-const RGB_RE = /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/i;
-
-const parseTokensCss = (css) => {
-  const raw = {};
-  for (const line of css.split("\n")) {
-    const match = line.match(/^\s*(--[\w-]+)\s*:\s*(.+?)\s*;/);
-    if (match) {
-      raw[match[1]] = match[2].trim();
-    }
-  }
-
-  const resolve = (value, depth = 0) => {
-    if (depth > 8) {
-      return value;
-    }
-    const varMatch = value.match(/var\((--[\w-]+)\)/);
-    if (varMatch) {
-      return resolve(raw[varMatch[1]] ?? value, depth + 1);
-    }
-    return value;
-  };
-
-  const colors = [];
-  for (const [name, value] of Object.entries(raw)) {
-    const resolved = resolve(value);
-    let hex = null;
-    const hexMatch = resolved.match(HEX_RE);
-    if (hexMatch) {
-      hex = hexMatch[0].length === 4 ? expandShortHex(hexMatch[0]) : hexMatch[0];
-    } else {
-      const rgbMatch = resolved.match(RGB_RE);
-      if (rgbMatch) {
-        hex = rgbToHex(Number(rgbMatch[1]), Number(rgbMatch[2]), Number(rgbMatch[3]));
-      }
-    }
-    if (hex && (name.includes("palette") || ["--bg", "--surface", "--text", "--muted", "--line", "--accent", "--accent-soft"].includes(name))) {
-      colors.push({ cssVar: name, name: name.replace(/^--/, ""), hex, raw: value });
-    }
-  }
-
-  return { raw, colors };
-};
-
-const expandShortHex = (short) => {
-  const h = short.slice(1);
-  return `#${h[0]}${h[0]}${h[1]}${h[1]}${h[2]}${h[2]}`;
-};
-
-const rgbToHex = (r, g, b) =>
-  `#${[r, g, b]
-    .map((n) => n.toString(16).padStart(2, "0"))
-    .join("")}`;
 
 const parseSimpleRules = (css) => {
   const rules = {};
@@ -168,7 +115,8 @@ const extractPreviewSpecimens = (html, pageTitle) => {
 };
 
 const tokensCss = readFileSync(join(root, "tokens/tokens.css"), "utf8");
-const tokens = parseTokensCss(tokensCss);
+const parsedTokens = parseTokensCss(tokensCss);
+const tokens = { raw: parsedTokens.raw, colors: figmaColorEntries(parsedTokens) };
 
 const cssRules = {};
 for (const file of sources.componentCss) {

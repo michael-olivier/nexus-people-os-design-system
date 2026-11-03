@@ -27,7 +27,7 @@ For now, clone the repo or add a git submodule.
 
 ## Icons
 
-Components assume [Iconoir](https://iconoir.com/) class names (`iconoir-*`). Load Iconoir CSS in the host app.
+Components use [Lucide](https://lucide.dev/icons/) via `data-lucide` attributes. Sync `lucide.min.js` with `npm run icons:sync`.
 
 ## Fonts
 

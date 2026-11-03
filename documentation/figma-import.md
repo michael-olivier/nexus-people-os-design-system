@@ -20,13 +20,16 @@ Edit **`figma/sources.json`** if you add component CSS files or new doc preview 
 
 1. Open Figma → **Plugins** → **Development** → **Import plugin from manifest…**
 2. Choose `figma/plugin/manifest.json` in this repo.
+3. If you update the plugin code, use **Development → Reset plugin** or re-import the manifest.
 
 ## 3. Create the library file
 
 1. Create a new Figma design file (e.g. “Nexus People OS — Library”).
 2. Run **Plugins → Development → Import Nexus DS**.
-3. Click **Import latest spec from GitHub** (after you’ve pushed `nexus-spec.json`),  
-   **or** paste local JSON after **Import from pasted JSON**.
+3. Prefer **choose local spec file** → pick `figma/nexus-spec.json` from this repo (most reliable).
+4. Or click **Import from GitHub** (requires network access; Figma will prompt to allow `raw.githubusercontent.com` the first time).
+
+If import fails with a font error, open the file once in Figma and add **Inter** from Google Fonts (or the plugin will fall back to Roboto).
 
 The plugin will:
 
@@ -49,7 +52,7 @@ Re-run the plugin in Figma (it replaces the Tokens / Components pages).
 
 - Only **simple** CSS selectors are parsed (single class, no `:hover` in Figma output).
 - **Structure** comes from doc previews, not CSS alone (CSS has no component tree).
-- **Iconoir** icons appear as placeholders in Figma unless you add icon assets manually.
+- **Lucide** icons are rendered in code/docs; Figma specimens use placeholders unless you add SVG assets manually.
 - For pixel-perfect parity, refine components in Figma after import (expected for v1).
 
 ## Alternative: html.to.design

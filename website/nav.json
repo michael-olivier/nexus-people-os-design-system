@@ -3,19 +3,96 @@
     {
       "id": "get-started",
       "label": "Get started",
-      "pages": [{ "slug": "get-started", "label": "Overview", "path": "get-started/index.html" }]
+      "slug": "get-started",
+      "path": "get-started/index.html",
+      "pages": [
+        { "slug": "get-started-overview", "label": "Overview", "path": "get-started/overview/index.html" },
+        { "slug": "get-started-design", "label": "Design", "path": "get-started/design/index.html" },
+        { "slug": "get-started-develop", "label": "Develop", "path": "get-started/develop/index.html" },
+        {
+          "slug": "get-started-about",
+          "label": "About the Design System",
+          "path": "get-started/about/index.html"
+        }
+      ]
     },
     {
       "id": "foundations",
       "label": "Foundations",
+      "slug": "foundations",
+      "path": "foundations/index.html",
       "pages": [
         { "slug": "color", "label": "Color", "path": "foundations/color/index.html" },
-        { "slug": "typography", "label": "Typography", "path": "foundations/typography/index.html" }
+        { "slug": "typography", "label": "Typography", "path": "foundations/typography/index.html" },
+        { "slug": "icons", "label": "Icons", "path": "foundations/icons/index.html" }
+      ],
+      "subsections": [
+        {
+          "label": "Content",
+          "slug": "content",
+          "path": "foundations/content/index.html",
+          "pages": [
+            {
+              "slug": "content-style-grammar",
+              "label": "Style, Grammar, and Punctuation",
+              "path": "foundations/content/style-grammar-punctuation/index.html"
+            },
+            {
+              "slug": "content-voice-tone",
+              "label": "Voice and Tone",
+              "path": "foundations/content/voice-tone/index.html"
+            },
+            {
+              "slug": "content-date-time",
+              "label": "Date and Time",
+              "path": "foundations/content/date-time/index.html"
+            }
+          ]
+        },
+        {
+          "label": "Messages",
+          "slug": "content-messages",
+          "path": "foundations/content/messages/index.html",
+          "pages": [
+            {
+              "slug": "content-messages-empty-state",
+              "label": "Empty State",
+              "path": "foundations/content/messages/empty-state/index.html"
+            },
+            {
+              "slug": "content-messages-error-message",
+              "label": "Error Message",
+              "path": "foundations/content/messages/error-message/index.html"
+            },
+            {
+              "slug": "content-messages-feature-discovery",
+              "label": "Feature Discovery",
+              "path": "foundations/content/messages/feature-discovery/index.html"
+            },
+            {
+              "slug": "content-messages-info",
+              "label": "Info Messages",
+              "path": "foundations/content/messages/info-messages/index.html"
+            },
+            {
+              "slug": "content-messages-success",
+              "label": "Success Messages",
+              "path": "foundations/content/messages/success-messages/index.html"
+            },
+            {
+              "slug": "content-messages-warning",
+              "label": "Warning Messages",
+              "path": "foundations/content/messages/warning-messages/index.html"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "components",
       "label": "Components",
+      "slug": "components",
+      "path": "components/index.html",
       "pages": [
         { "slug": "brand", "label": "Brand", "path": "components/brand/index.html" },
         { "slug": "buttons", "label": "Buttons", "path": "components/buttons/index.html" },

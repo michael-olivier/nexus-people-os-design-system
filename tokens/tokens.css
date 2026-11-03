@@ -7,7 +7,7 @@
 
   /* Brand gradient scale */
   --nx-palette-1: #357DE8;
-  --nx-palette-2: #357DE8;
+  --nx-palette-2: #2898BD;
   --nx-palette-3: #22A06B;
   --nx-palette-4: #6A9A23;
   --nx-palette-5: #B38600;
@@ -15,7 +15,6 @@
   --nx-palette-7: #E2483D;
   --nx-palette-8: #CD519D;
   --nx-palette-9: #AF59E1;
-  --nx-palette-10: #80ffdb;
 
   /* Semantic aliases (prototype-compatible) */
   --palette-1: var(--nx-palette-1);
@@ -27,7 +26,6 @@
   --palette-7: var(--nx-palette-7);
   --palette-8: var(--nx-palette-8);
   --palette-9: var(--nx-palette-9);
-  --palette-10: var(--nx-palette-10);
 
   --bg: rgb(247, 248, 249);
   --surface: #ffffff;
@@ -35,7 +33,7 @@
   --text: #202124;
   --muted: #8C8F97;
   --line: #DDDEE1;
-  --accent: var(--palette-3);
+  --accent: #357de8;
   --accent-soft: #CFE1FD;
   --sand: #f3f4f6;
   --white: #ffffff;

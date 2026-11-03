@@ -1,0 +1,73 @@
+<p class="eyebrow">Foundations · Content</p>
+<h1 class="ds-page-title">Date and Time</h1>
+<p class="ds-lede">
+  Dates and times should be unambiguous in dashboards, notifications, and agent replies. Prefer formats
+  that scan well in UI and defer locale-specific rendering to your i18n layer—not hand-typed strings.
+</p>
+
+<section class="ds-section">
+  <h2>Localization</h2>
+  <p>
+    Don’t hardcode formatted dates in components. Engineers should use locale-aware APIs so display
+    matches the signed-in user’s settings. Designers specify <em>which</em> format length fits the
+    layout; implementation handles <em>how</em> it renders.
+  </p>
+</section>
+
+<section class="ds-section">
+  <h2>Date formats</h2>
+  <p>Nexus People OS specs default to US-style long dates in English mockups. Pick the shortest length that still reads clearly.</p>
+  <ul class="ds-content-list">
+    <li><strong>Full</strong> — Monday, June 12, 2026</li>
+    <li><strong>Long</strong> — June 12, 2026</li>
+    <li><strong>Medium</strong> — Jun 12, 2026 (tight spaces only)</li>
+    <li><strong>Short / machine</strong> — 2026-06-12 (ISO 8601) for exports, filters, and logs—not primary display</li>
+  </ul>
+  <p>Don’t use ordinal dates (June 12th). Avoid ambiguous numeric dates like 06/12/2026 in user-facing UI.</p>
+
+  <h3>Date ranges</h3>
+  <p>Use “to” between dates and years. Use “and” after “between”.</p>
+  <div class="ds-example-pair">
+    <div class="ds-example ds-example--do">
+      <p class="ds-example-label ds-example-label--do"><i data-lucide="circle-check" aria-hidden="true"></i> Do</p>
+      <p>2024 to 2025 · Between March and May</p>
+    </div>
+    <div class="ds-example ds-example--dont">
+      <p class="ds-example-label ds-example-label--dont"><i data-lucide="circle-x" aria-hidden="true"></i> Don’t</p>
+      <p>2024–2025 (avoid for screen-reader clarity in UI copy)</p>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <h2>Time formats</h2>
+  <ul class="ds-content-list">
+    <li>Use a colon between hours and minutes: 2:40 p.m.</li>
+    <li>Lowercase “a.m.” and “p.m.” with a space before them.</li>
+    <li>Prefer <strong>noon</strong>, <strong>midnight</strong>, or <strong>midday</strong> instead of 12:00 p.m. / a.m. when space allows.</li>
+    <li>24-hour time is fine for ops, security, or system-driven views when locale settings require it.</li>
+  </ul>
+
+  <h3>Time ranges</h3>
+  <p>Repeat a.m./p.m. only when the range crosses noon or midnight.</p>
+  <div class="ds-example">
+    <p class="ds-example-label">Example</p>
+    <p>10 a.m. to 2 p.m. · 6:30 to 10 p.m.</p>
+  </div>
+</section>
+
+<section class="ds-section">
+  <h2>Relative time</h2>
+  <p>Use friendly relative labels when precision matters less than recency—for example, activity feeds.</p>
+  <ul class="ds-content-list">
+    <li>Just now · 5 minutes ago · Yesterday · 3 days ago</li>
+    <li>After about a week, show the absolute date (Jun 8, 2026).</li>
+    <li>Offer the full timestamp on hover or in a detail view when you show a relative label.</li>
+  </ul>
+  <p>Say “every 2 weeks”, not “fortnightly”. Say “twice a year”, not “biannual”, unless the term is legally required.</p>
+</section>
+
+<section class="ds-section">
+  <h2>Capitalization</h2>
+  <p>Capitalize names of months and days. Capitalize named holidays and observances.</p>
+</section>

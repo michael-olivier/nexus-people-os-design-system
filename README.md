@@ -20,7 +20,7 @@ Atlassian-style gallery: top nav, sidebar, foundations, and live component previ
   href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" />
+<script src="./assets/vendor/lucide.min.js" defer></script>
 <link rel="stylesheet" href="./dist/nexus-ds.css" />
 ```
 
@@ -60,7 +60,7 @@ Generate `figma/nexus-spec.json` from CSS, then run the **Import Nexus DS** plug
 npm run figma:spec
 ```
 
-No runtime dependencies. [Iconoir](https://iconoir.com/) is expected for icon components in product UIs.
+Runtime dependency: [Lucide](https://lucide.dev/icons/) (`lucide` npm package, synced to `assets/vendor/lucide.min.js`).
 
 ## Relationship to the prototype
 
