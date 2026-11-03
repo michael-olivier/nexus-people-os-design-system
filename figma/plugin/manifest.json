@@ -1,0 +1,9 @@
+{
+  "name": "Import Nexus DS",
+  "id": "nexus-people-os-import-ds",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}

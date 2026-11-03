@@ -1,0 +1,19 @@
+{
+  "componentCss": [
+    "components/brand.css",
+    "components/buttons.css",
+    "components/forms.css",
+    "components/panels.css",
+    "components/status-pill.css",
+    "components/agent-icon.css"
+  ],
+  "previewPages": [
+    { "title": "Brand", "file": "website/content/components-brand.html" },
+    { "title": "Buttons", "file": "website/content/components-buttons.html" },
+    { "title": "Forms", "file": "website/content/components-forms.html" },
+    { "title": "Panels", "file": "website/content/components-panels.html" },
+    { "title": "Status pills", "file": "website/content/components-status-pills.html" },
+    { "title": "Agent icons", "file": "website/content/components-agent-icons.html" },
+    { "title": "Color", "file": "website/content/foundations-color.html" }
+  ]
+}

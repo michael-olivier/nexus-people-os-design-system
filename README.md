@@ -52,6 +52,14 @@ npm run build:all   # both
 
 Serve locally: `npx serve site-dist`
 
+### Figma (CSS → library file)
+
+Generate `figma/nexus-spec.json` from CSS, then run the **Import Nexus DS** plugin in Figma. See [documentation/figma-import.md](documentation/figma-import.md).
+
+```bash
+npm run figma:spec
+```
+
 No runtime dependencies. [Iconoir](https://iconoir.com/) is expected for icon components in product UIs.
 
 ## Relationship to the prototype

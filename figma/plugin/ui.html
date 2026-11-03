@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        font:
+          12px Inter,
+          system-ui,
+          sans-serif;
+        color: #202124;
+      }
+      main {
+        display: grid;
+        gap: 10px;
+        padding: 12px;
+      }
+      p {
+        margin: 0;
+        line-height: 1.45;
+        color: #6b7280;
+      }
+      button {
+        padding: 8px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: #5e60ce;
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+      }
+      button.secondary {
+        background: #f1f3f4;
+        color: #202124;
+      }
+      textarea {
+        width: 100%;
+        min-height: 72px;
+        box-sizing: border-box;
+        font:
+          11px ui-monospace,
+          monospace;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>
+        Builds color variables and component frames from <code>nexus-spec.json</code> (generated from
+        CSS in the design-system repo).
+      </p>
+      <button id="import-github" type="button">Import latest spec from GitHub</button>
+      <button id="import-file" class="secondary" type="button">Import from pasted JSON</button>
+      <textarea id="spec" placeholder="Paste nexus-spec.json here…" hidden></textarea>
+    </main>
+    <script>
+      const specEl = document.getElementById("spec");
+      document.getElementById("import-github").onclick = () => {
+        parent.postMessage({ pluginMessage: { type: "import-url" } }, "*");
+      };
+      document.getElementById("import-file").onclick = () => {
+        specEl.hidden = false;
+        const text = specEl.value.trim();
+        if (text) {
+          parent.postMessage({ pluginMessage: { type: "import-json", spec: text } }, "*");
+        }
+      };
+    </script>
+  </body>
+</html>

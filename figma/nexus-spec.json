@@ -1,0 +1,564 @@
+{
+  "meta": {
+    "name": "Nexus People OS",
+    "version": "0.1.1",
+    "generatedAt": "2026-11-03T02:19:13.311Z",
+    "sourceRepo": "https://github.com/michael-olivier/nexus-people-os-design-system"
+  },
+  "tokens": {
+    "raw": {
+      "--nx-palette-1": "#7400b8",
+      "--nx-palette-2": "#6930c3",
+      "--nx-palette-3": "#5e60ce",
+      "--nx-palette-4": "#5390d9",
+      "--nx-palette-5": "#4ea8de",
+      "--nx-palette-6": "#48bfe3",
+      "--nx-palette-7": "#56cfe1",
+      "--nx-palette-8": "#64dfdf",
+      "--nx-palette-9": "#72efdd",
+      "--nx-palette-10": "#80ffdb",
+      "--palette-1": "var(--nx-palette-1)",
+      "--palette-2": "var(--nx-palette-2)",
+      "--palette-3": "var(--nx-palette-3)",
+      "--palette-4": "var(--nx-palette-4)",
+      "--palette-5": "var(--nx-palette-5)",
+      "--palette-6": "var(--nx-palette-6)",
+      "--palette-7": "var(--nx-palette-7)",
+      "--palette-8": "var(--nx-palette-8)",
+      "--palette-9": "var(--nx-palette-9)",
+      "--palette-10": "var(--nx-palette-10)",
+      "--bg": "rgb(252, 252, 252)",
+      "--surface": "#ffffff",
+      "--surface-muted": "#f1f3f4",
+      "--text": "#202124",
+      "--muted": "#6b7280",
+      "--line": "#e5e7eb",
+      "--accent": "var(--palette-3)",
+      "--accent-soft": "#e8faf8",
+      "--sand": "#f3f4f6",
+      "--white": "#ffffff",
+      "--shadow": "0 18px 50px rgba(17, 24, 39, 0.08)",
+      "--nexus-cyan": "var(--palette-7)",
+      "--nx-font-sans": "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "--nx-font-weight-regular": "400",
+      "--nx-font-weight-light": "300",
+      "--nx-radius-sm": "8px",
+      "--nx-radius-md": "16px",
+      "--nx-radius-lg": "28px",
+      "--nx-radius-pill": "999px",
+      "--nx-duration-fast": "160ms",
+      "--nx-ease-standard": "ease"
+    },
+    "colors": [
+      {
+        "cssVar": "--nx-palette-1",
+        "name": "nx-palette-1",
+        "hex": "#7400b8",
+        "raw": "#7400b8"
+      },
+      {
+        "cssVar": "--nx-palette-2",
+        "name": "nx-palette-2",
+        "hex": "#6930c3",
+        "raw": "#6930c3"
+      },
+      {
+        "cssVar": "--nx-palette-3",
+        "name": "nx-palette-3",
+        "hex": "#5e60ce",
+        "raw": "#5e60ce"
+      },
+      {
+        "cssVar": "--nx-palette-4",
+        "name": "nx-palette-4",
+        "hex": "#5390d9",
+        "raw": "#5390d9"
+      },
+      {
+        "cssVar": "--nx-palette-5",
+        "name": "nx-palette-5",
+        "hex": "#4ea8de",
+        "raw": "#4ea8de"
+      },
+      {
+        "cssVar": "--nx-palette-6",
+        "name": "nx-palette-6",
+        "hex": "#48bfe3",
+        "raw": "#48bfe3"
+      },
+      {
+        "cssVar": "--nx-palette-7",
+        "name": "nx-palette-7",
+        "hex": "#56cfe1",
+        "raw": "#56cfe1"
+      },
+      {
+        "cssVar": "--nx-palette-8",
+        "name": "nx-palette-8",
+        "hex": "#64dfdf",
+        "raw": "#64dfdf"
+      },
+      {
+        "cssVar": "--nx-palette-9",
+        "name": "nx-palette-9",
+        "hex": "#72efdd",
+        "raw": "#72efdd"
+      },
+      {
+        "cssVar": "--nx-palette-10",
+        "name": "nx-palette-10",
+        "hex": "#80ffdb",
+        "raw": "#80ffdb"
+      },
+      {
+        "cssVar": "--palette-1",
+        "name": "palette-1",
+        "hex": "#7400b8",
+        "raw": "var(--nx-palette-1)"
+      },
+      {
+        "cssVar": "--palette-2",
+        "name": "palette-2",
+        "hex": "#6930c3",
+        "raw": "var(--nx-palette-2)"
+      },
+      {
+        "cssVar": "--palette-3",
+        "name": "palette-3",
+        "hex": "#5e60ce",
+        "raw": "var(--nx-palette-3)"
+      },
+      {
+        "cssVar": "--palette-4",
+        "name": "palette-4",
+        "hex": "#5390d9",
+        "raw": "var(--nx-palette-4)"
+      },
+      {
+        "cssVar": "--palette-5",
+        "name": "palette-5",
+        "hex": "#4ea8de",
+        "raw": "var(--nx-palette-5)"
+      },
+      {
+        "cssVar": "--palette-6",
+        "name": "palette-6",
+        "hex": "#48bfe3",
+        "raw": "var(--nx-palette-6)"
+      },
+      {
+        "cssVar": "--palette-7",
+        "name": "palette-7",
+        "hex": "#56cfe1",
+        "raw": "var(--nx-palette-7)"
+      },
+      {
+        "cssVar": "--palette-8",
+        "name": "palette-8",
+        "hex": "#64dfdf",
+        "raw": "var(--nx-palette-8)"
+      },
+      {
+        "cssVar": "--palette-9",
+        "name": "palette-9",
+        "hex": "#72efdd",
+        "raw": "var(--nx-palette-9)"
+      },
+      {
+        "cssVar": "--palette-10",
+        "name": "palette-10",
+        "hex": "#80ffdb",
+        "raw": "var(--nx-palette-10)"
+      },
+      {
+        "cssVar": "--bg",
+        "name": "bg",
+        "hex": "#fcfcfc",
+        "raw": "rgb(252, 252, 252)"
+      },
+      {
+        "cssVar": "--surface",
+        "name": "surface",
+        "hex": "#ffffff",
+        "raw": "#ffffff"
+      },
+      {
+        "cssVar": "--text",
+        "name": "text",
+        "hex": "#202124",
+        "raw": "#202124"
+      },
+      {
+        "cssVar": "--muted",
+        "name": "muted",
+        "hex": "#6b7280",
+        "raw": "#6b7280"
+      },
+      {
+        "cssVar": "--line",
+        "name": "line",
+        "hex": "#e5e7eb",
+        "raw": "#e5e7eb"
+      },
+      {
+        "cssVar": "--accent",
+        "name": "accent",
+        "hex": "#5e60ce",
+        "raw": "var(--palette-3)"
+      },
+      {
+        "cssVar": "--accent-soft",
+        "name": "accent-soft",
+        "hex": "#e8faf8",
+        "raw": "#e8faf8"
+      }
+    ]
+  },
+  "cssRules": {
+    "brand": {
+      "display": "flex",
+      "align-items": "center",
+      "gap": "14px",
+      "padding": "4px 4px 8px",
+      "min-width": "0",
+      "border-radius": "var(--nx-radius-md)",
+      "color": "inherit",
+      "text-decoration": "none",
+      "transition": "background var(--nx-duration-fast) var(--nx-ease-standard)"
+    },
+    "brand-mark": {
+      "display": "grid",
+      "width": "46px",
+      "height": "46px",
+      "flex-shrink": "0",
+      "place-items": "center",
+      "border-radius": "12px",
+      "background": "color-mix(in srgb, var(--palette-7) 14%, white)",
+      "color": "var(--palette-3)",
+      "padding": "9px",
+      "box-sizing": "border-box"
+    },
+    "brand-mark--logo": {
+      "padding": "0",
+      "background": "transparent",
+      "overflow": "hidden"
+    },
+    "primary-button": {
+      "border": "0",
+      "border-radius": "var(--nx-radius-pill)",
+      "background": "var(--accent)",
+      "color": "var(--white)",
+      "font-weight": "var(--nx-font-weight-regular)",
+      "padding": "12px 18px",
+      "box-shadow": "0 10px 30px rgba(17, 24, 39, 0.04)",
+      "transition": "filter var(--nx-duration-fast) var(--nx-ease-standard)"
+    },
+    "secondary-button": {
+      "padding": "12px 18px",
+      "box-shadow": "0 10px 30px rgba(17, 24, 39, 0.04)"
+    },
+    "prompt-grid": {
+      "display": "flex",
+      "flex-wrap": "wrap",
+      "gap": "10px",
+      "justify-content": "center",
+      "max-width": "900px"
+    },
+    "icon-button": {
+      "display": "grid",
+      "width": "42px",
+      "height": "42px",
+      "place-items": "center",
+      "border": "0",
+      "border-radius": "50%",
+      "color": "var(--text)",
+      "transition": "background var(--nx-duration-fast) var(--nx-ease-standard),\n    color var(--nx-duration-fast) var(--nx-ease-standard),\n    opacity var(--nx-duration-fast) var(--nx-ease-standard)"
+    },
+    "secondary-icon": {
+      "background": "var(--surface-muted)"
+    },
+    "send-icon": {
+      "border": "0",
+      "background": "var(--accent)",
+      "color": "var(--white)"
+    },
+    "chat-composer": {
+      "display": "grid",
+      "gap": "10px",
+      "width": "100%",
+      "max-width": "940px",
+      "margin": "18px 0 20px",
+      "text-align": "center"
+    },
+    "input-row": {
+      "display": "grid",
+      "grid-template-columns": "auto 1fr auto auto",
+      "align-items": "center",
+      "gap": "10px",
+      "padding": "8px",
+      "border": "1px solid var(--line)",
+      "border-radius": "100px",
+      "background": "var(--surface)",
+      "box-shadow": "0 10px 30px rgba(17, 24, 39, 0.04)"
+    },
+    "input-row-compact": {
+      "grid-template-columns": "1fr auto auto"
+    },
+    "panel": {
+      "display": "grid",
+      "gap": "18px",
+      "min-height": "260px",
+      "padding": "22px",
+      "border": "1px solid var(--line)",
+      "border-radius": "var(--nx-radius-lg)",
+      "background": "var(--surface)",
+      "box-shadow": "0 14px 44px rgba(17, 24, 39, 0.04)"
+    },
+    "panel-header": {
+      "display": "flex",
+      "align-items": "flex-start",
+      "justify-content": "space-between",
+      "gap": "16px"
+    },
+    "hero-card": {
+      "display": "grid",
+      "gap": "22px",
+      "justify-items": "center",
+      "margin-bottom": "24px",
+      "padding": "clamp(20px, 4vw, 42px) 0 28px",
+      "border": "0",
+      "border-radius": "0",
+      "background": "transparent",
+      "box-shadow": "none"
+    },
+    "hero-copy": {
+      "width": "min(100%, 760px)",
+      "max-width": "760px",
+      "text-align": "center"
+    },
+    "status-pill": {
+      "display": "inline-flex",
+      "align-items": "center",
+      "gap": "6px",
+      "justify-self": "end",
+      "box-sizing": "border-box",
+      "height": "32px",
+      "padding": "0 10px 0 8px",
+      "border-radius": "var(--nx-radius-pill)",
+      "font-size": "0.68rem",
+      "font-weight": "600",
+      "letter-spacing": "0.06em",
+      "text-transform": "uppercase",
+      "white-space": "nowrap"
+    },
+    "status-pill-icon": {
+      "display": "grid",
+      "flex-shrink": "0",
+      "place-items": "center",
+      "color": "inherit"
+    },
+    "status-pill-overdue": {
+      "background": "#feecef",
+      "color": "#e11d48"
+    },
+    "status-pill-pending": {
+      "background": "#fff7ed",
+      "color": "#ea580c"
+    },
+    "status-pill-progress": {
+      "background": "#ecfdf9",
+      "color": "#0d9488"
+    },
+    "status-pill-enrolled": {
+      "background": "var(--white)",
+      "color": "var(--text)",
+      "border": "1px solid color-mix(in srgb, var(--text) 12%, var(--line))"
+    },
+    "agent-icon": {
+      "display": "grid",
+      "width": "28px",
+      "height": "28px",
+      "flex-shrink": "0",
+      "place-items": "center",
+      "border-radius": "var(--nx-radius-sm)"
+    },
+    "agent-icon-career": {
+      "background": "color-mix(in srgb, var(--palette-1) 12%, white)",
+      "color": "var(--palette-1)"
+    },
+    "agent-icon-feedback": {
+      "background": "color-mix(in srgb, var(--palette-2) 12%, white)",
+      "color": "var(--palette-2)"
+    },
+    "agent-icon-learning": {
+      "background": "color-mix(in srgb, var(--palette-3) 12%, white)",
+      "color": "var(--palette-3)"
+    },
+    "agent-icon-travel": {
+      "background": "color-mix(in srgb, var(--palette-6) 14%, white)",
+      "color": "var(--palette-4)"
+    },
+    "agent-icon-meeting": {
+      "background": "color-mix(in srgb, var(--palette-4) 12%, white)",
+      "color": "var(--palette-4)"
+    },
+    "agent-page-title": {
+      "display": "inline-flex",
+      "align-items": "center",
+      "justify-content": "center",
+      "gap": "10px",
+      "margin-bottom": "6px"
+    },
+    "agent-icon-lg": {
+      "width": "34px",
+      "height": "34px",
+      "border-radius": "10px"
+    }
+  },
+  "specimens": [
+    {
+      "page": "Brand",
+      "section": "Example",
+      "kind": "brand",
+      "classes": [
+        "brand"
+      ],
+      "text": "Nexus People OS"
+    },
+    {
+      "page": "Buttons",
+      "section": "Actions",
+      "kind": "button",
+      "classes": [
+        "primary-button"
+      ],
+      "text": "Primary"
+    },
+    {
+      "page": "Buttons",
+      "section": "Actions",
+      "kind": "button",
+      "classes": [
+        "secondary-button"
+      ],
+      "text": "Secondary"
+    },
+    {
+      "page": "Buttons",
+      "section": "Prompt chips",
+      "kind": "button",
+      "classes": [
+        "is-selected"
+      ],
+      "text": "Summarize check-ins"
+    },
+    {
+      "page": "Forms",
+      "section": "Chat composer",
+      "kind": "input-row",
+      "classes": [
+        "input-row"
+      ],
+      "text": "Ask People OS…"
+    },
+    {
+      "page": "Panels",
+      "section": "Default panel",
+      "kind": "panel",
+      "classes": [
+        "panel"
+      ],
+      "text": "Panel"
+    },
+    {
+      "page": "Status pills",
+      "section": "Variants",
+      "kind": "status-pill",
+      "classes": [
+        "status-pill",
+        "status-pill-overdue"
+      ],
+      "text": "Overdue"
+    },
+    {
+      "page": "Status pills",
+      "section": "Variants",
+      "kind": "status-pill",
+      "classes": [
+        "status-pill",
+        "status-pill-pending"
+      ],
+      "text": "Due soon"
+    },
+    {
+      "page": "Status pills",
+      "section": "Variants",
+      "kind": "status-pill",
+      "classes": [
+        "status-pill",
+        "status-pill-progress"
+      ],
+      "text": "In progress"
+    },
+    {
+      "page": "Status pills",
+      "section": "Variants",
+      "kind": "status-pill",
+      "classes": [
+        "status-pill",
+        "status-pill-enrolled"
+      ],
+      "text": ""
+    },
+    {
+      "page": "Agent icons",
+      "section": "Agents",
+      "kind": "agent-icon",
+      "classes": [
+        "agent-icon",
+        "agent-icon-career"
+      ],
+      "text": "Career Coach"
+    },
+    {
+      "page": "Agent icons",
+      "section": "Agents",
+      "kind": "agent-icon",
+      "classes": [
+        "agent-icon",
+        "agent-icon-feedback"
+      ],
+      "text": "Feedback"
+    },
+    {
+      "page": "Agent icons",
+      "section": "Agents",
+      "kind": "agent-icon",
+      "classes": [
+        "agent-icon",
+        "agent-icon-learning"
+      ],
+      "text": "Learning"
+    },
+    {
+      "page": "Agent icons",
+      "section": "Agents",
+      "kind": "agent-icon",
+      "classes": [
+        "agent-icon",
+        "agent-icon-travel"
+      ],
+      "text": "Travel"
+    },
+    {
+      "page": "Agent icons",
+      "section": "Agents",
+      "kind": "agent-icon",
+      "classes": [
+        "agent-icon",
+        "agent-icon-meeting"
+      ],
+      "text": "Meeting"
+    }
+  ]
+}
