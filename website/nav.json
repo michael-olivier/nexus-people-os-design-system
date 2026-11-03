@@ -1,0 +1,29 @@
+{
+  "sections": [
+    {
+      "id": "get-started",
+      "label": "Get started",
+      "pages": [{ "slug": "get-started", "label": "Overview", "path": "get-started/index.html" }]
+    },
+    {
+      "id": "foundations",
+      "label": "Foundations",
+      "pages": [
+        { "slug": "color", "label": "Color", "path": "foundations/color/index.html" },
+        { "slug": "typography", "label": "Typography", "path": "foundations/typography/index.html" }
+      ]
+    },
+    {
+      "id": "components",
+      "label": "Components",
+      "pages": [
+        { "slug": "brand", "label": "Brand", "path": "components/brand/index.html" },
+        { "slug": "buttons", "label": "Buttons", "path": "components/buttons/index.html" },
+        { "slug": "forms", "label": "Forms", "path": "components/forms/index.html" },
+        { "slug": "panels", "label": "Panels", "path": "components/panels/index.html" },
+        { "slug": "status-pills", "label": "Status pills", "path": "components/status-pills/index.html" },
+        { "slug": "agent-icons", "label": "Agent icons", "path": "components/agent-icons/index.html" }
+      ]
+    }
+  ]
+}

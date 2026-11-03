@@ -2,6 +2,12 @@
 
 Design tokens and UI primitives extracted from the [Career Coach Agent](https://github.com/michael-olivier/career-coach-agent) prototype (Nexus People OS). This repo is the **source of truth** for visual language; the prototype consumes it as a dependency once integration is wired.
 
+## Documentation site
+
+**https://michael-olivier.github.io/nexus-people-os-design-system/**
+
+Atlassian-style gallery: top nav, sidebar, foundations, and live component previews (GitHub Pages).
+
 ## Status
 
 **v0.1.0 — foundation** — tokens, typography, and core components aligned with the current prototype. Layout patterns (sidebar, workspace split, agent chat shell) stay in the app until later packages.
@@ -24,8 +30,6 @@ Or import in your own CSS:
 @import "@michael-olivier/nexus-people-os-design-system/dist/nexus-ds.css";
 ```
 
-Open [`examples/index.html`](examples/index.html) locally after copying `dist/` (or run `npm run build`).
-
 ## Package layout
 
 | Path | Purpose |
@@ -34,13 +38,19 @@ Open [`examples/index.html`](examples/index.html) locally after copying `dist/` 
 | `foundations/` | Reset, body defaults, type scale |
 | `components/` | Buttons, forms, panels, status pills, agent icons, brand |
 | `dist/nexus-ds.css` | Bundled entry (generated) |
-| `docs/` | Integration notes for downstream apps |
+| `website/` | Documentation site source |
+| `site-dist/` | Built gallery (generated, deployed to Pages) |
+| `documentation/` | Integration notes for downstream apps |
 
 ## Build
 
 ```bash
-npm run build   # concat sources → dist/nexus-ds.css
+npm run build       # dist/nexus-ds.css
+npm run build:site  # site-dist/ documentation gallery
+npm run build:all   # both
 ```
+
+Serve locally: `npx serve site-dist`
 
 No runtime dependencies. [Iconoir](https://iconoir.com/) is expected for icon components in product UIs.
 
@@ -48,7 +58,7 @@ No runtime dependencies. [Iconoir](https://iconoir.com/) is expected for icon co
 
 1. **Refine here** — tokens, naming, component APIs, documentation.
 2. **Version** — tag releases (`v0.2.0`, …).
-3. **Integrate** — point Career Coach Agent at a release (copy `dist/`, npm link, or Git submodule). See [docs/integration-career-coach.md](docs/integration-career-coach.md).
+3. **Integrate** — point Career Coach Agent at a release. See [documentation/integration-career-coach.md](documentation/integration-career-coach.md).
 
 ## Principles (from the prototype)
 

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} · Nexus People OS</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/iconoir@7.12.1/css/iconoir.css" />
+    <link rel="stylesheet" href="{{root}}design-system/nexus-ds.css" />
+    <link rel="stylesheet" href="{{root}}assets/docs.css" />
+  </head>
+  <body class="ds-body" data-active-section="{{activeSection}}" data-active-page="{{activePage}}">
+    <div class="ds-shell">
+      <header class="ds-header">
+        <div class="ds-header-inner">
+          <a class="ds-home-link" href="{{root}}index.html">
+            <img class="ds-home-logo" src="{{root}}assets/nexus-logo.png" alt="" width="32" height="32" />
+            <span class="ds-home-title">Nexus People OS</span>
+          </a>
+          <nav class="ds-top-nav" aria-label="Primary">
+            <a class="ds-top-nav-link{{topDesignActive}}" href="{{root}}index.html">Design system</a>
+            <a class="ds-top-nav-link{{topStartActive}}" href="{{root}}get-started/index.html">Get started</a>
+            <a
+              class="ds-top-nav-link ds-top-nav-link-external"
+              href="https://github.com/michael-olivier/nexus-people-os-design-system"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </nav>
+          <button type="button" class="ds-menu-button" id="ds-menu-button" aria-expanded="false" aria-controls="ds-sidebar">
+            <span class="sr-only">Menu</span>
+            <i class="iconoir-menu" aria-hidden="true"></i>
+          </button>
+        </div>
+      </header>
+      <div class="ds-frame">
+        <aside class="ds-sidebar" id="ds-sidebar" aria-label="Sidebar">{{sidebar}}</aside>
+        <main class="ds-main" id="main-content">{{content}}</main>
+      </div>
+    </div>
+    <script src="{{root}}assets/docs.js" defer></script>
+  </body>
+</html>
